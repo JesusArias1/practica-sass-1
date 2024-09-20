@@ -1,0 +1,19 @@
+article {
+  border-radius: 50px;
+  background-color: #e0e0e0;
+  box-shadow: 21px 21px 42px #bebebe, -21px -21px 42px #fff; }
+
+section {
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #fff; }
+
+article {
+  border-radius: 50px;
+  background-color: #e0e0e0;
+  box-shadow: 21px 21px 42px #bebebe, -21px -21px 42px; }
+
+section {
+  border-radius: 20px;
+  background-color: #e0e0e0;
+  box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px; }

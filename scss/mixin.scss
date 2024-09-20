@@ -1,0 +1,33 @@
+// Como crear tu propio mixin: ejemplo con con neomorfismo
+// Detecta cuando siempre usas las mismas porpiedades 
+// Adapta los mixin a tu forma de maquetar
+
+
+// Neomofismo sin mixins
+
+article {
+    border-radius: 50px;
+    background-color: 
+    #e0e0e0;
+    box-shadow: 21px 21px 42px #bebebe, -21px -21px 42px #fff;
+}
+section {
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #fff;
+}
+
+// Asi quedaria con mixin 
+@mixin neo( $radius , $eje ){
+    border-radius: $radius;
+    background-color: #e0e0e0;
+    box-shadow: $eje $eje ($eje*2) #bebebe, 
+    (-$eje) (-$eje) ($eje*2);
+}
+article {
+    @include neo(50px , 21px)
+    
+}
+section {
+    @include neo(20px , 10px)
+}

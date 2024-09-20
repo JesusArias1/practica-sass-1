@@ -1,0 +1,189 @@
+// ¿Que es un mixin en css? 
+// no existen mixin en css pero si en Sass 
+
+// QUE ES UN MIXIN EN SASS/SCSS?
+// ES UNA FUNCION QUE NOS PERMITE AHORRAR LINEAS DE CODIGO Y PUEDEN USAR:
+//  {Argumentos son como las variables}
+// @content
+// Podemos definir vaqrios tipos de mixin 
+
+// 1. mixin sin Argumentos
+// 2. Mixin con Argumentos
+// -de solo un argumento
+// - De mas de un argumento
+// Argumento con valor por defecto
+// Mixin con la regla content
+// mixin para flex 
+// mixing para grid
+// Mixin para responsive design
+// Como crear tu propio mixing
+
+
+// Como hacer funciones en SASS?
+// Creamos con @mixing
+// USAMOS CON @INCLUDE
+// - SI NO HAY ARGUMENTOS PODEMOS NO PONER LOS "()"
+// CREAMOS MIXIN CON PARENTESIS
+@mixin nombreMixin(){
+    background: black;
+}
+header {
+    @include nombreMixin();   //Usamos el mixin con()
+}
+
+@mixin otroMixin{
+    background-color: black;
+}
+header {
+    @include otroMixin;  //Usamos el mixin sin ()
+}
+
+//   mixing con argumentos 
+//    siempre con los "()"
+//    recuerda que los argumentos son como las   variables
+
+// Mixin con solo 1 argumento 
+
+
+@mixin nombre( $argumento-1 ){
+    color: $argumento-1;
+}
+p {
+    @include nombre( black );
+}
+
+// Mixin con mas de un argumento 
+@mixin nombre($argumento1, $argumento2, $argumento3){
+    color: $argumento1;
+    font-weight: $argumento2;
+    font-size: $argumento3;
+}
+p {
+    @include nombre(black, bold, 2em);
+}
+// Mixin con un solo argumento 
+ @mixin nombre ( $argumento1 : red ){
+    color: $argumento1;
+ }
+ p{
+    @include nombre()
+    // @include nombre(black)
+ }
+
+//  Mixin con la regla @content 
+// Nos permite  introducir multiples propiedades dentro de un mixin  y muy usado para responsive design
+
+@mixin movil(){
+    @media screen and (max-width: 480px) {
+        @content
+    }
+}
+p {
+    font-size: 4em;
+
+    @include movil(){
+        font-size: 2em;
+    }
+}
+
+
+
+/*Anidacion (nesting) - ¿como anidar en scss?  */
+// Ejemplo sin anidacion 
+
+// header {
+//     color: red;
+// }
+// header h1 {
+//     color: red;
+// }
+// header nav {
+//     @include flex()
+// }
+//  Ejemplo con anidacion 
+
+
+header {
+    color: black;
+    
+
+    h1 {
+        color: red;
+    }
+
+}
+
+//   ¿Que significa & en SCSS? 
+//  - Añade al selector padre 
+//  Ejemplo sin el selector & ni anidacion
+ 
+
+a {
+    color: black;
+}
+a:hover {
+    color: red;
+
+}
+a:visited {
+    color: blue;
+}
+a:visited {
+    color: pink;
+}
+
+
+// Ejemplo con selector & y anidacion
+a {
+    color: black;
+
+    &:hover {
+        color: red;
+    }
+    &:active {
+        color: blue;
+    }
+}
+
+// SCSS Metodologia con bem
+// ¿Que significa bem en css?
+// -Es una metodologia que define un bloque, elemento y modificador
+
+// ¿Que es bem es sass?
+// -Pues adaptamos los selectores de BEM gracias a la anidacion y el selector & 
+
+
+// Ejemplo de BEM sin anidar 
+.header {
+    color: black;
+}
+
+.header__h1{
+    color: pink;
+}
+.header__nav {
+    color: pink;
+}
+
+.header {
+    color: black;
+  .header__h1 {
+    color: pink;
+  }
+  .header__nav {
+    color: red;
+  }
+}
+
+// Ejemplo de BEM con anidacion y selector & 
+
+.header {
+    color: black;
+   &__h1 {
+    color: pink;
+  }
+  &__nav {
+    color: red;
+  }
+}
+

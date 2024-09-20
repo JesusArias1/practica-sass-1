@@ -1,0 +1,53 @@
+//  Como escribimos la variables
+// -declaramos (creamos la variable
+// Usamos la variable
+// nombre que quieras pero ponle snake-case
+// aprender de nomenclaturas
+
+$negro : black; // declaramos la variable
+
+a {
+    color: $negro; //Usamos la variable en una propiedad
+}
+
+p {
+    background: $negro; // Usamos la variable en una propiedad
+}
+
+// ¿Que pasa si tengo muchas ?
+$color-negro : black;
+$color-blanco: white;
+$fuente-normal: verdana;
+$fuente-titulo: Helvetica;
+
+header {
+    color: $color-negro;
+    font-family: $fuente-normal;
+}
+h1 {
+    background-color: $color-blanco;
+    font-family: $fuente-titulo;
+}
+// Vamos a ser organizados y guardar todas las variables en una lista de variables
+// Una lista de variables es un arrays
+// Usaremos map-get para usar las variables
+
+$colores: (
+ "negro": black,
+ "blanco": white,
+);
+$fuentes : (
+    "normal" : verdana,
+    "titulo": Helvetica
+
+);
+
+header {
+    color: map-get($colores , "negro" );
+    font-family: map-get($fuentes , "normal" );
+}
+
+h1 {
+    background: map-get($colores , "blanco" );
+    font-family: map-get($fuentes , "titulo" );
+}

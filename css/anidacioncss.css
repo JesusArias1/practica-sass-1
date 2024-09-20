@@ -1,0 +1,5 @@
+@charset "UTF-8";
+/*Anidacion (nesting) - ¿como anidar en scss?  */
+/*  Ejemplo sin anidacion*/
+header {
+  color: black; }

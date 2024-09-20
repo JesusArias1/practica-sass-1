@@ -1,0 +1,65 @@
+// Cuando no tenemos un mixin tenemos que:
+// -Repetir varias veces las mismas propiedades
+// - nos olvidamos de ponerlas en orden
+// Escribimos varias lineas por etiquetas
+// Mas probabilidad de equivocarte al escribir
+
+// main{
+//     display: flex;
+//     flex-wrap: nowrap;
+//     justify-content: center;
+//     align-items: center;
+// }
+// section {
+//     display: flex;
+//     flex-wrap: nowrap;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// Si usamos un mixin
+@mixin flexible($dis, $direction, $corte, $just, $align){
+    display: $dis;
+    flex-flow: $direction;
+    justify-content: $just;
+    align-items: $align;
+}
+main {
+    @include flexible(flex, row, nowrap,center, flex-start);
+}
+.seccion {
+    @include flexible(flex, column, wrap, flex-start, flex-start)
+}
+
+
+// mixin para grid 
+@mixin  grid($columnas , $espacio) {
+    display:   grid;
+    grid-template-columns: repeat($columnas , 1fr);
+    gap: $espacio;
+}
+@media screen and(max-width: 480px) {
+        grid-template-columns: 1fr;
+        gap: 0em;
+}
+
+main {
+    @include grid(4 , 1em);
+}
+.seccion-2 {
+    @include grid(3 , 2em);
+}
+
+
+// @mixin para reponsive design
+@mixin movil( $medida : 480px ) {
+    @media screen and(max-width: $medida) {
+        @content
+    }
+}
+
+article {
+    width: 25%;
+     @include movil(768px){width:50%}
+     @include movil(){width: 100%;}
+}

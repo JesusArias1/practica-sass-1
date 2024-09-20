@@ -1,0 +1,34 @@
+main {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: flex-start; }
+
+.seccion {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start; }
+
+@media screen and (max-width: 480px) {
+  grid-template-columns: 1fr;
+  gap: 0em; }
+
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em; }
+
+.seccion-2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em; }
+
+article {
+  width: 25%; }
+  @media screen and (max-width: 768px) {
+    article {
+      width: 50%; } }
+  @media screen and (max-width: 480px) {
+    article {
+      width: 100%; } }

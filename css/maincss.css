@@ -1,0 +1,71 @@
+@charset "UTF-8";
+header {
+  background: black; }
+
+header {
+  background-color: black; }
+
+p {
+  color: black; }
+
+p {
+  color: black;
+  font-weight: bold;
+  font-size: 2em; }
+
+p {
+  color: red; }
+
+p {
+  font-size: 4em; }
+  @media screen and (max-width: 480px) {
+    p {
+      font-size: 2em; } }
+
+/*Anidacion (nesting) - ¿como anidar en scss?  */
+header {
+  color: black; }
+  header h1 {
+    color: red; }
+
+a {
+  color: black; }
+
+a:hover {
+  color: red; }
+
+a:visited {
+  color: blue; }
+
+a:visited {
+  color: pink; }
+
+a {
+  color: black; }
+  a:hover {
+    color: red; }
+  a:active {
+    color: blue; }
+
+.header {
+  color: black; }
+
+.header__h1 {
+  color: pink; }
+
+.header__nav {
+  color: pink; }
+
+.header {
+  color: black; }
+  .header .header__h1 {
+    color: pink; }
+  .header .header__nav {
+    color: red; }
+
+.header {
+  color: black; }
+  .header__h1 {
+    color: pink; }
+  .header__nav {
+    color: red; }
